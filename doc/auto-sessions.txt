@@ -9,8 +9,17 @@ supported. The session is stored based on the Git branch you work in.
                                                 *g:auto_sessions_dir*
 The directory of the session files can be changed by defining the value of
 g:auto_sessions_dir variable:
-> 
+>
         let g:auto_sessions_dir = '.sessions'
+<
+By default it's `.vim-sessions`.
+
+                                                *g:auto_sessions_loaded*
+The plugin can be easily disabled by setting g:auto_sessions_loaded variable
+to 1 in your `.vimrc` script.
+>
+        " Not the plugin won't be loaded
+        let g:auto_sessions_loaded = 1
 <
 By default it's `.vim-sessions`.
 
