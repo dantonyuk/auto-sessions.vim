@@ -36,6 +36,7 @@ endfunction
 
 command! SaveSession call autosessions#SaveSession()
 command! RestoreSession call autosessions#RestoreSession()
+command! DeleteSession call autosessions#DeleteSession()
 
 let &cpo = s:cpo_save
 unlet s:cpo_save

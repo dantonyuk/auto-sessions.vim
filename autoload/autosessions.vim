@@ -24,6 +24,13 @@ function! autosessions#RestoreSession() abort
   endif
 endfunction
 
+function! autosessions#DeleteSession() abort
+  let session_path = s:GetSessionPath()
+  if filereadable(session_path)
+    call delete(session_path)
+  endif
+endfunction
+
 function! s:SavePreviousSession() abort
   let current_session = get(v:, 'this_session', '')
   if type(current_session) == 1 && current_session isnot# ''

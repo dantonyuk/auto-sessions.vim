@@ -33,9 +33,14 @@ The plugin provides following commands:
                     |g:auto_sessions_dir| variable.
 
                                                 *:RestoreSession*
-:RestoreSessio      Restore a session based on the current Git branch. The
+:RestoreSession     Restore a session based on the current Git branch. The
                     session file will be picked up from the directory
                     specified by |g:auto_sessions_dir| variable.
+
+                                                *:DeleteSession*
+:DeleteSession      Delete a session based on the current Git branch. The
+                    session file will be deleted from the directory specified
+                    by |g:auto_sessions_dir| variable.
 
 ABOUT
 
