@@ -1,0 +1,33 @@
+*auto-sessions.txt*   Another session manager
+
+INTRODUCTION                                    *auto-sessions*
+
+The auto-sessions plugin is a automatic session manager that manages sessions
+based on the environment. Currently, the only Git based environment is
+supported. The session is stored based on the Git branch you work in.
+
+                                                *g:auto_sessions_dir*
+The directory of the session files can be changed by defining the value of
+g:auto_sessions_dir variable:
+> 
+        let g:auto_sessions_dir = '.sessions'
+<
+By default it's `.vim-sessions`.
+
+COMMANDS
+
+The plugin provides following commands:
+
+                                                *:SaveSession*
+:SaveSession        Save a session based on the current Git branch. The
+                    session file will be created in the directory specified by
+                    |g:auto_sessions_dir| variable.
+
+                                                *:RestoreSession*
+:RestoreSessio      Restore a session based on the current Git branch. The
+                    session file will be picked up from the directory
+                    specified by |g:auto_sessions_dir| variable.
+
+ABOUT
+
+https://github.com/dantonyuk/auto-sessions.vim
