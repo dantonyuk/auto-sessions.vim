@@ -7,19 +7,27 @@ function! autosessions#SaveSession() abort
 endfunction
 
 function! autosessions#RestoreSession() abort
-  call s:SavePreviousSession()
+  let prev_session = s:SavePreviousSession()
+  let session_path = s:GetSessionPath()
+  if session_path isnot# prev_session 
+    if filereadable(session_path)
+      " Clean up first
+      let v:this_session = ""
+      bufdo update
+      bufdo bwipeout!
 
+      " Restore a session
+      execute 'source ' . session_path
+    else
+      call autosessions#SaveSession()
+    endif
+  endif
+endfunction
+
+function! autosessions#DeleteSession() abort
   let session_path = s:GetSessionPath()
   if filereadable(session_path)
-    " Clean up first
-    let v:this_session = ""
-    bufdo update
-    bufdo bwipeout!
-
-    " Restore a session
-    execute 'source ' . session_path
-  else
-    call autosessions#SaveSession()
+    call delete(session_path)
   endif
 endfunction
 
