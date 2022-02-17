@@ -8,8 +8,10 @@ set cpo&vim
 
 let g:auto_sessions_dir = get(g:, 'auto_sessions_dir', '.vim-sessions')
 
-autocmd VimEnter * call autosessions#RestoreSession()
-autocmd VimLeavePre * call autosessions#SaveSession()
+augroup AutoSession
+  autocmd VimEnter * call autosessions#RestoreSession()
+  autocmd VimLeavePre * call autosessions#SaveSession()
+augroup END
 
 command! SaveSession call autosessions#SaveSession()
 command! RestoreSession call autosessions#RestoreSession()
