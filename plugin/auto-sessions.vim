@@ -9,6 +9,7 @@ set cpo&vim
 let g:auto_sessions_dir = get(g:, 'auto_sessions_dir', '.vim-sessions')
 
 augroup AutoSession
+  autocmd!
   autocmd VimEnter * ++nested call RestoreSession()
   autocmd VimLeavePre * ++nested call SaveSession()
 augroup END
@@ -20,7 +21,7 @@ augroup END
 
 function! SaveSession() abort
   if s:IsEnabled()
-    call autosessions#SaveSession()
+    call autosessions#SaveOrDeleteSession()
   endif
 endfunction
 
