@@ -3,8 +3,8 @@ if exists('g:loaded_auto_sessions')
 endif
 let g:loaded_auto_sessions = 1
 
-let s:cpo_save = &cpo
-set cpo&vim
+let s:cpo_save = &cpoptions
+set cpoptions&vim
 
 let g:auto_sessions_dir = get(g:, 'auto_sessions_dir', '.vim-sessions')
 
@@ -39,5 +39,5 @@ command! SaveSession call autosessions#SaveSession()
 command! RestoreSession call autosessions#RestoreSession()
 command! DeleteSession call autosessions#DeleteSession()
 
-let &cpo = s:cpo_save
+let &cpoptions = s:cpo_save
 unlet s:cpo_save
