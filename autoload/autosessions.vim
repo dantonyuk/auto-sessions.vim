@@ -13,12 +13,12 @@ function! autosessions#RestoreSession() abort
   let session_path = s:GetSessionPath()
   if session_path isnot# prev_session 
     if filereadable(session_path)
-      ' Clean up first
+      " Clean up first
       let v:this_session = ''
       bufdo update
       bufdo bwipeout!
 
-      ' Restore a session
+      " Restore a session
       execute 'source ' . session_path
     else
       call autosessions#SaveSession()
