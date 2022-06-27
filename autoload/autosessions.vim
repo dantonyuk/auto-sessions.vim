@@ -92,6 +92,6 @@ function! s:GetSessionFile() abort
     return 'Session-' . branch . '.vim'
   endif
 
-  ' Fallback
+  " Fallback
   return 'Session.vim'
 endfunction
